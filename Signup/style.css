@@ -17,8 +17,9 @@ html{
 
 }
 body{
+   
     min-height: 100vh;
-    background-image: (url(desert-8041046_1920.jpg));
+    background-image: url(desert-8041046_1920.jpg) !important ; 
     background-size: cover;
     background-position: right;
     overflow: hidden;

@@ -1,4 +1,5 @@
 body {
+    background-image: url(desert-8041046_1920.jpg);
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,7 +12,7 @@ body {
 .main {
     width: 350px;
     height: 480px;
-    background: rgb(111, 128, 224);
+    background: #6b9c9e;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 5px 30px 50px black;
@@ -59,7 +60,7 @@ button {
     justify-content: center;
     display: block;
     color: white;
-    background: rgb(43, 83, 194);
+    background: #75a3ac;
     font-size: 20px;
     font-weight: bold;
     margin-top: 18px;
@@ -84,7 +85,7 @@ button:hover {
 }
 
 .login label {
-    color: #573b8a;
+    color: #6b9c9e;
     transform: scale(.6);
 }
 
