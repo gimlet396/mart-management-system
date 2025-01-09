@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Mart Dashboard</h2>
+      <nav>
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="sales.html">Sales</a></li>
+          <li><a href="inventory.html" class="active">Inventory</a></li>
+          <li><a href="customer.html">Customers</a></li>
+          <li><a href="#reports">Reports</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header>
+        <h1>Inventory Overview</h1>
+      </header>
+
+      <!-- Filters Section -->
+      <section class="filters">
+        <label for="search-item">Search Item:</label>
+        <input type="text" id="search-item" placeholder="Enter item name or ID">
+        <button onclick="searchInventory()">Search</button>
+      </section>
+
+      <!-- Inventory Summary Widgets -->
+      <section class="widgets">
+        <div class="widget">
+          <h3>Total Products</h3>
+          <p>500</p>
+        </div>
+        <div class="widget">
+          <h3>Out of Stock</h3>
+          <p>15</p>
+        </div>
+        <div class="widget">
+          <h3>Low Stock</h3>
+          <p>25</p>
+        </div>
+        <div class="widget">
+          <h3>Stock Value</h3>
+          <p>$75,000</p>
+        </div>
+      </section>
+
+      <!-- Inventory Details Table -->
+      <section class="inventory-details">
+        <h2>Inventory Details</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Stock</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Apple</td>
+              <td>Fruits</td>
+              <td>50</td>
+              <td>$1.20</td>
+              <td>In Stock</td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Milk</td>
+              <td>Dairy</td>
+              <td>0</td>
+              <td>$2.00</td>
+              <td>Out of Stock</td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>Bread</td>
+              <td>Bakery</td>
+              <td>15</td>
+              <td>$1.50</td>
+              <td>Low Stock</td>
+            </tr>
+            <tr>
+              <td>004</td>
+              <td>Rice</td>
+              <td>Grains</td>
+              <td>200</td>
+              <td>$10.00</td>
+              <td>In Stock</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
