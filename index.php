@@ -1,0 +1,1 @@
+<?php header("Location: ./Signup/index.php"); ?>
