@@ -24,42 +24,46 @@ const salesChart = new Chart(ctx, {
     }
   }
 });
-// Example function to filter sales by date range
-function filterSales() {
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
-  
-    if (!startDate || !endDate) {
-      alert('Please select a valid date range.');
-      return;
-    }
-  
-    alert(`Filtering sales from ${startDate} to ${endDate}`);
-    // Here, you could make an API call or filter data dynamically
-  }
 
-  // Example function to search inventory items
-function searchInventory() {
-    const searchItem = document.getElementById('search-item').value.trim();
-    
-    if (!searchItem) {
-      alert('Please enter an item name or ID.');
-      return;
-    }
-  
-    alert(`Searching for "${searchItem}" in inventory...`);
-    // Here, you could filter the table dynamically or make an API call
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".delete-button").forEach(button => {
+      button.addEventListener("click", function () {
+          const productId = this.getAttribute("onclick").match(/\d+/g)[0]; // Extract productId
+          const stock = this.getAttribute("onclick").match(/\d+/g)[1]; // Extract stock
+
+          deleteProduct(productId, stock);
+      });
+  });
+});
+
+function deleteProduct(productId, availableQuantity) {
+  let quantityToDelete = prompt(`Enter quantity to delete (Available: ${availableQuantity}):`, 1);
+
+  if (quantityToDelete !== null) {
+      quantityToDelete = parseInt(quantityToDelete);
+
+      if (isNaN(quantityToDelete) || quantityToDelete <= 0 || quantityToDelete > availableQuantity) {
+          alert("Invalid quantity. Please enter a valid number.");
+          return;
+      }
+
+      if (confirm(`Are you sure you want to delete ${quantityToDelete} items?`)) {
+          fetch('delete_product.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ productId: productId, quantity: quantityToDelete })
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert(data.message);
+              if (data.success) {
+                  location.reload(); // Refresh page after deletion
+              }
+          })
+          .catch(error => console.error("Error:", error));
+      }
   }
-  // Example function to search customer records
-function searchCustomer() {
-    const searchCustomer = document.getElementById('search-customer').value.trim();
-    
-    if (!searchCustomer) {
-      alert('Please enter a customer name or ID.');
-      return;
-    }
-  
-    alert(`Searching for customer "${searchCustomer}"...`);
-    // You can implement further filtering or API calls here
-  }
+}
+
+
   

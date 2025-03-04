@@ -33,12 +33,12 @@
       </header>
 
       <!-- Filters Section -->
-      <section class="filters">
+      <!-- <section class="filters">
         <label for="date-range">Date Range:</label>
         <input type="date" id="start-date"> to 
         <input type="date" id="end-date">
         <button onclick="filterSales()">Filter</button>
-      </section>
+      </section> -->
 
       <?php
         include 'db_connection.php';
